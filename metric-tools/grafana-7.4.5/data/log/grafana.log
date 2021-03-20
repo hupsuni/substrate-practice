@@ -316,3 +316,4 @@ t=2021-03-21T00:44:35+1100 lvl=eror msg="Dashboard not found" logger=context use
 t=2021-03-21T00:44:35+1100 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=GET path=/api/dashboards/uid/PUYzGbwWz status=404 remote_addr=127.0.0.1 time_ms=0 size=33 referer=http://localhost:3000/dashboard/import
 t=2021-03-21T00:44:42+1100 lvl=eror msg="Dashboard not found" logger=context userId=1 orgId=1 uname=admin error="Dashboard not found" remote_addr=127.0.0.1
 t=2021-03-21T00:44:42+1100 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=GET path=/api/dashboards/uid/PUYzGbwWz status=404 remote_addr=127.0.0.1 time_ms=0 size=33 referer=http://localhost:3000/dashboard/import
+t=2021-03-21T00:51:29+1100 lvl=info msg="Shutdown started" logger=server reason="System signal: terminated"
