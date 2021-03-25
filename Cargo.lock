@@ -3602,6 +3602,7 @@ dependencies = [
  "sp-transaction-pool",
  "sp-version",
  "substrate-wasm-builder",
+ "test-pallet 3.0.0 (git+https://github.com/hupsuni/substrate-pallet-practice)",
 ]
 
 [[package]]
@@ -7376,6 +7377,29 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "2dfed899f0eb03f32ee8c6a0aabdb8a7949659e3466561fc0adf54e26d88c5f4"
 dependencies = [
  "winapi-util",
+]
+
+[[package]]
+name = "test-pallet"
+version = "3.0.0"
+source = "git+https://github.com/hupsuni/substrate-pallet-practice#a78eb8d85bf988ad9116b8348829d0c3f2b93593"
+dependencies = [
+ "frame-support",
+ "frame-system",
+ "parity-scale-codec",
+]
+
+[[package]]
+name = "test-pallet"
+version = "3.0.0"
+dependencies = [
+ "frame-support",
+ "frame-system",
+ "parity-scale-codec",
+ "serde",
+ "sp-core",
+ "sp-io",
+ "sp-runtime",
 ]
 
 [[package]]

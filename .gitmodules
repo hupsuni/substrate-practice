@@ -1,3 +1,6 @@
 [submodule "frontend-practice"]
 	path = frontend-practice
 	url = https://github.com/hupsuni/substrate-frontend-practice
+[submodule "pallets/test-pallet"]
+	path = pallets/test-pallet
+	url = https://github.com/hupsuni/substrate-pallet-practice

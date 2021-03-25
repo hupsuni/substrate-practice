@@ -20,6 +20,12 @@ features = ['derive']
 package = 'parity-scale-codec'
 version = '2.0.0'
 
+# Custom dependencies
+[dependencies.test-pallet]
+default-features = false
+git = 'https://github.com/hupsuni/substrate-pallet-practice'
+version = '3.0.0'
+
 [dependencies]
 hex-literal = { optional = true, version = '0.3.1' }
 serde = { features = ['derive'], optional = true, version = '1.0.119' }
@@ -60,6 +66,8 @@ pallet-contracts-primitives = { default-features = false, version = '3.0.0' }
 pallet-contracts-rpc-runtime-api = { default-features = false, version = '3.0.0' }
 pallet-scheduler = { default-features = false, version = '3.0.0' }
 pallet-node-authorization = { default-features = false, version = '3.0.0' }
+# Custom Pallet
+#test-pallet = { default-features = false, version = '3.0.0' }
 
 [features]
 default = ['std']
@@ -107,4 +115,5 @@ std = [
     'pallet-contracts-rpc-runtime-api/std',
     'pallet-scheduler/std',
     'pallet-node-authorization/std',
+    'test-pallet/std',
 ]
