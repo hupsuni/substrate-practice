@@ -68,6 +68,8 @@ pallet-scheduler = { default-features = false, version = '3.0.0' }
 pallet-node-authorization = { default-features = false, version = '3.0.0' }
 # Custom Pallet
 #test-pallet = { default-features = false, version = '3.0.0' }
+# Ethereum
+pallet-evm = {default-features = false, version = '3.0.0'}
 
 [features]
 default = ['std']
@@ -116,4 +118,6 @@ std = [
     'pallet-scheduler/std',
     'pallet-node-authorization/std',
     'test-pallet/std',
+    # Ethereum
+    'pallet-evm/std',
 ]

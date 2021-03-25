@@ -23,6 +23,9 @@ use sp_version::RuntimeVersion;
 #[cfg(feature = "std")]
 use sp_version::NativeVersion;
 
+/// Ethereum
+use pallet_evm::{ EnsureAddressTruncated, HashedAddressMapping };
+
 // A few exports that help ease life for downstream crates.
 #[cfg(any(feature = "std", test))]
 pub use sp_runtime::BuildStorage;
@@ -72,6 +75,8 @@ pub type Hash = sp_core::H256;
 
 /// Digest item type.
 pub type DigestItem = generic::DigestItem<Hash>;
+
+
 
 /// Opaque types. These are used by the CLI to instantiate machinery that don't need to know
 /// the specifics of the runtime. They can then be made to be agnostic over specific formats
@@ -399,6 +404,21 @@ impl test_pallet::Config for Runtime {
 	type Event = Event;
 }
 
+parameter_types! {
+    pub const LeetChainId: u64 = 1337;
+}
+
+impl pallet_evm::Config for Runtime {
+	type FeeCalculator = ();
+	type CallOrigin = EnsureAddressTruncated;
+	type WithdrawOrigin = EnsureAddressTruncated;
+	type AddressMapping = HashedAddressMapping<BlakeTwo256>;
+	type Currency = Balances;
+	type Event = Event;
+	type Precompiles = ();
+	type ChainId = LeetChainId;
+}
+
 // Create the runtime by composing the FRAME pallets that were previously configured.
 construct_runtime!(
 	pub enum Runtime where
@@ -423,6 +443,7 @@ construct_runtime!(
 		Scheduler: pallet_scheduler::{Module, Call, Storage, Event<T>},
 		NodeAuthorization: pallet_node_authorization::{Module, Call, Storage, Event<T>, Config<T>},
 		TestPallet: test_pallet::{Module, Call, Storage, Event<T>},
+		EVM: pallet_evm::{Module, Call, Storage, Config<T>, Event<T>},
 	}
 );
 
