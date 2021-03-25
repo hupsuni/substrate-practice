@@ -3602,6 +3602,7 @@ dependencies = [
  "sp-transaction-pool",
  "sp-version",
  "substrate-wasm-builder",
+ "test-pallet",
 ]
 
 [[package]]
@@ -7379,7 +7380,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "test-paltet"
+name = "test-pallet"
 version = "3.0.0"
 dependencies = [
  "frame-support",

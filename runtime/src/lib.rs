@@ -42,6 +42,7 @@ pub use frame_support::{
 use pallet_transaction_payment::CurrencyAdapter;
 use pallet_contracts::weights::WeightInfo;
 use frame_system::EnsureRoot;
+use test_pallet;
 
 /// Import the template pallet.
 pub use pallet_template;
@@ -394,6 +395,10 @@ impl pallet_node_authorization::Config for Runtime {
 	type WeightInfo = ();
 }
 
+impl test_pallet::Config for Runtime {
+	type Event = Event;
+}
+
 // Create the runtime by composing the FRAME pallets that were previously configured.
 construct_runtime!(
 	pub enum Runtime where
@@ -417,6 +422,7 @@ construct_runtime!(
 		Contracts: pallet_contracts::{Module, Call, Config<T>, Storage, Event<T>},
 		Scheduler: pallet_scheduler::{Module, Call, Storage, Event<T>},
 		NodeAuthorization: pallet_node_authorization::{Module, Call, Storage, Event<T>, Config<T>},
+		TestPallet: test_pallet::{Module, Call, Storage, Event<T>},
 	}
 );
 
