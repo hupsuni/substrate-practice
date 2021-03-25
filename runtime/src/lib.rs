@@ -24,7 +24,8 @@ use sp_version::RuntimeVersion;
 use sp_version::NativeVersion;
 
 /// Ethereum
-use pallet_evm::{ EnsureAddressTruncated, HashedAddressMapping };
+/// Ethereum additions unavailable in runtime 3.0.0 currently
+// use pallet_evm::{ EnsureAddressTruncated, HashedAddressMapping };
 
 // A few exports that help ease life for downstream crates.
 #[cfg(any(feature = "std", test))]
@@ -404,20 +405,21 @@ impl test_pallet::Config for Runtime {
 	type Event = Event;
 }
 
-parameter_types! {
-    pub const LeetChainId: u64 = 1337;
-}
-
-impl pallet_evm::Config for Runtime {
-	type FeeCalculator = ();
-	type CallOrigin = EnsureAddressTruncated;
-	type WithdrawOrigin = EnsureAddressTruncated;
-	type AddressMapping = HashedAddressMapping<BlakeTwo256>;
-	type Currency = Balances;
-	type Event = Event;
-	type Precompiles = ();
-	type ChainId = LeetChainId;
-}
+// parameter_types! {
+//     pub const LeetChainId: u64 = 1337;
+// }
+//
+// impl pallet_evm::Config for Runtime {
+// 	type FeeCalculator = ();
+// 	type CallOrigin = EnsureAddressTruncated;
+// 	type WithdrawOrigin = EnsureAddressTruncated;
+// 	type AddressMapping = HashedAddressMapping<BlakeTwo256>;
+// 	type Currency = Balances;
+// 	type Event = Event;
+// 	type Precompile = ();
+// 	type Precompiles = ();
+// 	type ChainId = LeetChainId;
+// }
 
 // Create the runtime by composing the FRAME pallets that were previously configured.
 construct_runtime!(
@@ -443,7 +445,7 @@ construct_runtime!(
 		Scheduler: pallet_scheduler::{Module, Call, Storage, Event<T>},
 		NodeAuthorization: pallet_node_authorization::{Module, Call, Storage, Event<T>, Config<T>},
 		TestPallet: test_pallet::{Module, Call, Storage, Event<T>},
-		EVM: pallet_evm::{Module, Call, Storage, Config<T>, Event<T>},
+		// EVM: pallet_evm::{Module, Call, Storage, Config<T>, Event<T>},
 	}
 );
 
