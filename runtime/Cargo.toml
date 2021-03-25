@@ -60,6 +60,8 @@ pallet-contracts-primitives = { default-features = false, version = '3.0.0' }
 pallet-contracts-rpc-runtime-api = { default-features = false, version = '3.0.0' }
 pallet-scheduler = { default-features = false, version = '3.0.0' }
 pallet-node-authorization = { default-features = false, version = '3.0.0' }
+# Custom Pallet
+test-pallet = { path = '../pallets/test-pallet', default-features = false, version = '3.0.0' }
 
 [features]
 default = ['std']
@@ -107,4 +109,5 @@ std = [
     'pallet-contracts-rpc-runtime-api/std',
     'pallet-scheduler/std',
     'pallet-node-authorization/std',
+    'test-pallet/std',
 ]
