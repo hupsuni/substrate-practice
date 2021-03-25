@@ -1,6 +1,6 @@
-# Substrate Node Template
+# Substrate Node Template - Including sub modules - Based on Templates for Substrate Tutorials
 
-A fresh FRAME-based [Substrate](https://www.substrate.io/) node, ready for hacking :rocket:
+A fresh FRAME-based [Substrate](https://www.substrate.io/) node, Currently being hacked on for tutorial purposes :rocket:
 
 ## Getting Started
 
